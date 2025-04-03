@@ -1,0 +1,1 @@
+Giới thiệu game pokemon phiên bản lite
