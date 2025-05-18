@@ -1,4 +1,4 @@
-# Tổng Hợp Các Thuật Toán Tìm Kiếm Trong Trí Tuệ Nhân Tạo
+![dfs](https://github.com/user-attachments/assets/4954d202-3efc-4805-a198-a98950ceb5c7)# Tổng Hợp Các Thuật Toán Tìm Kiếm Trong Trí Tuệ Nhân Tạo
 
 ## 1. Mục tiêu
 
@@ -27,7 +27,7 @@ Repository này nhằm mục đích tổng hợp, tóm lược và minh họa c�
                                     **BFS (Breadth-First Search)**
                                     *(Duyệt từng lớp của cây tìm kiếm)*
 
-![DFS](https://github.com/VoThanhNha/CS114.L21.KHCL/assets/115750000/680b6b35-e082-419d-94da-926f1351e7e7)
+![DFS](https://github.com/user-attachments/assets/73525ad3-2633-4b72-a1e5-0d3793ca59ac)
                                     **DFS (Depth-First Search)**
                                     *(Ưu tiên duyệt sâu theo một nhánh)*
 
@@ -49,7 +49,8 @@ Repository này nhằm mục đích tổng hợp, tóm lược và minh họa c�
 | IDDFS      | Có          | Có (nếu chi phí đều) | $O(b^d)$              | $O(bd)$                |
 *(b: hệ số nhánh, d: độ sâu đích nông nhất, m: độ sâu max, C*: chi phí tối ưu, $\epsilon$: chi phí nhỏ nhất)*
 
-![So sánh hiệu suất Nhóm 1](https://github.com/user-attachments/assets/0fde014b-1448-4cf4-adde-c1944496a842)
+![So sánh hiệu suất Nhóm 1](https://github.com/user-attachments/assets/3d7fe063-9774-4600-b330-d4132b35641b)
+
 *Ghi chú về hiệu suất thực tế trên 8-puzzle:*
 * BFS, UCS, IDDFS thường tìm ra lời giải tối ưu (ví dụ, 9 bước) một cách nhất quán cho các bài toán 8-puzzle điển hình.
 * DFS thường gặp khó khăn, có thể timeout hoặc không tìm ra giải pháp trong thời gian hợp lý cho không gian tìm kiếm của 8-puzzle nếu không có các biện pháp cắt tỉa hoặc giới hạn độ sâu hiệu quả.
@@ -93,7 +94,8 @@ Repository này nhằm mục đích tổng hợp, tóm lược và minh họa c�
 | A\* | Có          | Có (nếu $h(n)$ chấp nhận được) | Phụ thuộc $h(n)$      | Thường là $O(b^d)$     |
 | IDA\* | Có          | Có (nếu $h(n)$ chấp nhận được) | Phụ thuộc $h(n)$      | Thường là $O(bd)$      |
 
-![So sánh hiệu suất Nhóm 2](https://github.com/user-attachments/assets/1d1a5a09-a816-4126-9f7b-bfa190633328)
+![So sánh hiệu suất Nhóm 2](https://github.com/user-attachments/assets/305dbce2-6945-4e74-86a5-e4dbe9c659af)
+
 *Ghi chú về hiệu suất thực tế trên 8-puzzle (sử dụng Manhattan distance):*
 * A\* và IDA\* tỏ ra rất hiệu quả, luôn tìm ra đường đi tối ưu và nhanh chóng (ví dụ, nhiều trường hợp giải 9 bước chỉ trong khoảng thời gian rất ngắn, thường dưới 0.01 giây).
 * Greedy cũng rất nhanh nhưng không phải lúc nào cũng tối ưu (ví dụ, có trường hợp Greedy tìm ra đường đi dài hơn đáng kể so với A\*/IDA\* cho cùng một bài toán).
@@ -141,7 +143,7 @@ Repository này nhằm mục đích tổng hợp, tóm lược và minh họa c�
 * **Genetic Algorithms:** Mạnh mẽ cho không gian tìm kiếm phức tạp, có thể tìm giải pháp gần tối ưu toàn cục. Yêu cầu điều chỉnh nhiều tham số.
 * **Beam Search:** Là một sự cân bằng giữa tìm kiếm tham lam và BFS, hiệu suất phụ thuộc vào "độ rộng chùm tia" (beam width). Nếu beam width quá nhỏ, có thể giống Greedy; nếu quá lớn, có thể giống BFS.
 
-![So sánh hiệu suất Nhóm 3](https://github.com/user-attachments/assets/aed3b324-8868-428f-8564-c0d474faf85d)
+![So sánh hiệu suất Nhóm 3](https://github.com/user-attachments/assets/608d07f9-182f-4341-873e-80932d64c60c)
 *Ghi chú về hiệu suất thực tế trên 8-puzzle:*
 * Các biến thể Hill Climbing cho thấy hành vi này: Simple HC và Stochastic HC có lúc giải được, có lúc bị kẹt ở giá trị heuristic chưa tối ưu. Steepest HC có vẻ ổn định hơn và thường tìm được lời giải tốt hơn cho các bài toán 8-puzzle đơn giản.
 * Simulated Annealing có thể tìm được đích nhưng quá trình "khám phá" (số trạng thái đã duyệt) thường rất dài.
@@ -250,7 +252,7 @@ Repository này nhằm mục đích tổng hợp, tóm lược và minh họa c�
 * **Solution:** Mục tiêu của RL là tìm ra một **chính sách tối ưu ($\pi\*$)** – một cách hành động giúp agent thu được tổng phần thưởng lớn nhất có thể trong dài hạn.
 
 #### 2.6.2. Hình ảnh GIF của thuật toán (ví dụ Q-Learning):
-* Tưởng tượng một robot học cách di chuyển trong một mê cung để đến được đích. Ban đầu nó di chuyển ngẫu nhiên, nhưng dần dần "học" được những đường đi tốt hơn dựa trên phần thưởng (ví dụ, đến gần đích hơn) hoặc phạt (ví dụ, đi vào ngõ cụt). Các "giá trị Q" (Q-values) của các cặp (trạng thái, hành động) được cập nhật liên tục. Tìm "Q-learning visualization gif" hoặc "Reinforcement learning grid world gif".
+![qlearning](https://github.com/user-attachments/assets/94312929-67a4-4be8-a867-9242bc45468c)
     *(Việc chạy các episodes huấn luyện Q-Learning cho 8-puzzle có thể được xem như quá trình agent học hỏi này.)*
     *(Hiện tại chưa có GIF cụ thể cho Q-Learning giải 8-puzzle trong repository này, nhưng bạn có thể tìm các minh họa tương tự trên mạng.)*
 
