@@ -2,6 +2,8 @@ import pygame
 import random
 import copy
 import heapq
+import os
+import sys
 
 # --- Common Constants ---
 GRID_SIZE = 3
@@ -37,7 +39,7 @@ HIGHLIGHT_FOUND_GOAL_BORDER = (255, 190, 0)  # Gold/Amber for found goal border
 HIGHLIGHT_AND_OR_FIXED_BORDER = (255, 100, 0)  # Orange for AND-OR fixed border
 
 # --- Main Screen Configuration ---
-SCREEN_WIDTH_MAIN = 800
+SCREEN_WIDTH_MAIN = 1024
 SCREEN_HEIGHT_MAIN = 700
 HEADER_HEIGHT = 50
 CONTENT_Y_OFFSET = HEADER_HEIGHT + 10
@@ -785,8 +787,12 @@ def main_app():
         mouse_pos = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                # When this window is closed, launch main.py
                 running = False
-
+                pygame.quit()
+                script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "main.py")
+                os.system(f'python "{script_path}"')
+                sys.exit()
             clicked_on_header_button = False
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if btn_po_rect.collidepoint(mouse_pos):

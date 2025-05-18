@@ -1364,7 +1364,7 @@ def main():
     pygame.init()
     pygame.font.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("Trình Giải 8-Puzzle - Nhóm 3 Local Search Added")
+    pygame.display.set_caption("Trình Giải 8-Puzzle")
     clock = pygame.time.Clock()
 
     try:

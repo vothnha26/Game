@@ -3,9 +3,10 @@ import sys
 import copy
 import random
 import time
+import os  # Import os module for relaunching main.py
 
 # --- UI Constants Definition ---
-SCREEN_WIDTH = 600
+SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 700
 BOARD_SIZE = 450
 TILE_SIZE = BOARD_SIZE // 3
@@ -419,28 +420,28 @@ class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        pygame.display.set_caption("Group 5: 8-Puzzle Solver")  # Changed message
+        pygame.display.set_caption("Group 5: 8-Puzzle Solver")
         self.clock = pygame.time.Clock()
         self.running = True
 
         self.goal_board_str = "1,2,3,4,5,6,7,8,0"
         self.goal_board_state = parse_board_from_string(self.goal_board_str)
         if not self.goal_board_state:
-            print("CRITICAL ERROR: Standard default goal is invalid!")  # Changed message
+            print("CRITICAL ERROR: Standard default goal is invalid!")
             self.goal_board_state = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
             self.goal_board_str = "1,2,3,4,5,6,7,8,0"
 
-        self.start_board_str = "1,3,0,4,2,5,7,8,6"  # Easy test case
+        self.start_board_str = "1,3,0,4,2,5,7,8,6"
         self.current_board_state = parse_board_from_string(self.start_board_str)
 
         if not self.current_board_state or \
                 not (GiaiDuoc(self.current_board_state) == GiaiDuoc(self.goal_board_state)):
             print(
-                f"WARNING: Default start board '{self.start_board_str}' is invalid or unsolvable to goal! Generating random board instead.")  # Changed message
+                f"WARNING: Default start board '{self.start_board_str}' is invalid or unsolvable to goal! Generating random board instead.")
             self.current_board_state = AC3_Generate_Board()
             self.start_board_str = ",".join(str(item) for row in self.current_board_state for item in row)
 
-        self.message = "Select an algorithm. Backtracking has a special rule for tiles 3&6."  # Changed message
+        self.message = "Select an algorithm. Backtracking has a special rule for tiles 3&6."
         self.buttons = []
 
         input_width = (BOARD_SIZE - 10) // 2
@@ -565,19 +566,25 @@ class Game:
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                # When this window is closed, launch main.py
                 self.running = False
+                pygame.quit()
+                script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "main.py")
+                os.system(f'python "{script_path}"')
+                sys.exit()
+    
             for button in self.buttons:
                 button.handle_event(event)
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if self.input_rect_start.collidepoint(event.pos):
                     self.input_active = 'start'
-                    self.message = "Edit Start board (e.g., 1,2,3,4,0,5,6,7,8)"  # Changed message
+                    self.message = "Edit Start board (e.g., 1,2,3,4,0,5,6,7,8)"
                 elif self.input_rect_goal.collidepoint(event.pos):
-                    self.input_active = 'goal'
-                    self.message = "Edit Goal board (e.g., 1,2,3,4,5,6,7,8,0)"  # Changed message
-                elif not any(b.rect.collidepoint(event.pos) for b in self.buttons):  # Clicked outside buttons
-                    self.input_active = None  # Deactivate input box
+                    self.input_active = 'goal' 
+                    self.message = "Edit Goal board (e.g., 1,2,3,4,5,6,7,8,0)"
+                elif not any(b.rect.collidepoint(event.pos) for b in self.buttons):
+                    self.input_active = None
 
             if event.type == pygame.KEYDOWN and self.input_active:
                 active_str_ref = 'start_board_str' if self.input_active == 'start' else 'goal_board_str'
