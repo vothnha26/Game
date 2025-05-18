@@ -141,7 +141,8 @@ Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các
 * **Genetic Algorithms:** Mạnh mẽ cho không gian phức tạp, có thể tìm giải pháp gần tối ưu.
 * **Beam Search:** Cân bằng giữa Greedy và BFS, phụ thuộc "độ rộng chùm tia".
 
-![So sánh hiệu suất Nhóm 3](https://github.com/user-attachments/assets/608d07f9-182f-4341-873e-80932d64c60c)
+![So sánh hiệu suất Nhóm 3]([https://github.com/user-attachments/assets/608d07f9-182f-4341-873e-80932d64c60c](https://github.com/user-attachments/assets/877d2f0e-400f-4678-b1b6-f43f9245b234))
+Test case: [[1, 2, 3], [4, 0, 5], [6, 7, 8]]
 *Ghi chú về hiệu suất thực tế trên 8-puzzle (tham khảo tệp log kết quả):*
 * Các biến thể Hill Climbing: Simple/Stochastic HC có thể bị kẹt; Steepest HC ổn định hơn.
 * Simulated Annealing: Có thể tìm được đích nhưng quá trình khám phá thường dài.
