@@ -53,17 +53,35 @@ Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các
                                         **IDDFS (Iterative Deepening DFS)**
                                         *(Lặp lại DFS với giới hạn độ sâu tăng dần)*
 
-#### 2.1.3. Hình ảnh so sánh hiệu suất của các thuật toán:
-(Hiệu suất lý thuyết chung)
-| Thuật Toán | Tính Đầy Đủ | Tính Tối Ưu         | Độ Phức Tạp Thời Gian | Độ Phức Tạp Không Gian |
-| :--------- | :---------- | :-------------------- | :-------------------- | :--------------------- |
-| BFS        | Có          | Có (nếu chi phí đều) | $O(b^d)$              | $O(b^d)$               |
-| DFS        | Không       | Không                 | $O(b^m)$              | $O(bm)$                |
-| UCS        | Có          | Có                    | $O(b^{1+C*/\epsilon})$ | $O(b^{1+C*/\epsilon})$  |
-| IDDFS      | Có          | Có (nếu chi phí đều) | $O(b^d)$              | $O(bd)$                |
-*(b: hệ số nhánh, d: độ sâu đích nông nhất, m: độ sâu max, C*: chi phí tối ưu, $\epsilon$: chi phí nhỏ nhất)*
+#### 2.1.3. So sánh hiệu suất lý thuyết của các thuật toán trong Nhóm 1:
+*(b: hệ số nhánh (branching factor), d: độ sâu của lời giải nông nhất, m: độ sâu tối đa của không gian trạng thái, C*: chi phí của lời giải tối ưu, $\epsilon$: chi phí hành động nhỏ nhất, lớn hơn 0)*
+
+* **BFS (Breadth-First Search):**
+    * **Tính đầy đủ (Completeness):** Có (nếu b hữu hạn).
+    * **Tính tối ưu (Optimality):** Có (nếu chi phí mỗi hành động là như nhau, ví dụ bằng 1).
+    * **Độ phức tạp thời gian (Time Complexity):** $O(b^d)$.
+    * **Độ phức tạp không gian (Space Complexity):** $O(b^d)$.
+
+* **DFS (Depth-First Search):**
+    * **Tính đầy đủ:** Không (có thể bị kẹt trong nhánh vô hạn nếu không gian trạng thái là vô hạn và không có kiểm tra lặp). Có nếu không gian trạng thái hữu hạn và không có chu trình.
+    * **Tính tối ưu:** Không.
+    * **Độ phức tạp thời gian:** $O(b^m)$ (có thể rất lớn).
+    * **Độ phức tạp không gian:** $O(bm)$ (khá tốt).
+
+* **UCS (Uniform Cost Search):**
+    * **Tính đầy đủ:** Có (nếu chi phí mỗi hành động $\ge \epsilon > 0$).
+    * **Tính tối ưu:** Có.
+    * **Độ phức tạp thời gian:** $O(b^{1+\lfloor C*/\epsilon \rfloor})$.
+    * **Độ phức tạp không gian:** $O(b^{1+\lfloor C*/\epsilon \rfloor})$.
+
+* **IDDFS (Iterative Deepening DFS):**
+    * **Tính đầy đủ:** Có (nếu b hữu hạn).
+    * **Tính tối ưu:** Có (nếu chi phí mỗi hành động là như nhau).
+    * **Độ phức tạp thời gian:** $O(b^d)$.
+    * **Độ phức tạp không gian:** $O(bd)$.
 
 ![So sánh hiệu suất Nhóm 1](https://github.com/user-attachments/assets/3d7fe063-9774-4600-b330-d4132b35641b)
+*Biểu đồ so sánh hiệu suất thực tế của Nhóm 1 trên 8-puzzle*
 
 *Ghi chú về hiệu suất thực tế trên 8-puzzle (tham khảo tệp log kết quả `8_puzzle_test_log.txt`):*
 * BFS, UCS, IDDFS thường tìm ra lời giải tối ưu một cách nhất quán. Thời gian chạy cho BFS và UCS thường nhanh, trong khi IDDFS có thể mất nhiều thời gian hơn do duyệt lại nhưng tiết kiệm bộ nhớ hơn BFS/UCS.
@@ -104,15 +122,29 @@ Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các
                                         **IDA\* (Iterative Deepening A\*)**
                                         *(Lặp lại tìm kiếm giới hạn theo $f(n)$ tăng dần)*
 
-#### 2.2.3. Hình ảnh so sánh hiệu suất của các thuật toán:
-(Hiệu suất lý thuyết chung, phụ thuộc vào heuristic)
-| Thuật Toán    | Tính Đầy Đủ | Tính Tối Ưu                      | Độ Phức Tạp Thời Gian | Độ Phức Tạp Không Gian |
-| :------------ | :---------- | :------------------------------- | :-------------------- | :--------------------- |
-| Greedy        | Không       | Không                            | Phụ thuộc $h(n)$      | Phụ thuộc $h(n)$       |
-| A\* | Có          | Có (nếu $h(n)$ chấp nhận được)    | Phụ thuộc $h(n)$      | Thường là $O(b^d)$      |
-| IDA\* | Có          | Có (nếu $h(n)$ chấp nhận được)    | Phụ thuộc $h(n)$      | Thường là $O(bd)$       |
+#### 2.2.3. So sánh hiệu suất lý thuyết của các thuật toán trong Nhóm 2:
+*(Hiệu suất phụ thuộc mạnh vào chất lượng của hàm heuristic $h(n)$)*
+
+* **Greedy Best-First Search:**
+    * **Tính đầy đủ:** Không (có thể bị kẹt trong vòng lặp nếu không kiểm tra trạng thái đã thăm). Có nếu không gian trạng thái hữu hạn và có kiểm tra lặp.
+    * **Tính tối ưu:** Không.
+    * **Độ phức tạp thời gian:** $O(b^m)$ trong trường hợp xấu nhất, nhưng có thể cải thiện đáng kể với heuristic tốt.
+    * **Độ phức tạp không gian:** $O(b^m)$ trong trường hợp xấu nhất (lưu tất cả các nút trong danh sách mở).
+
+* **A\* Search:**
+    * **Tính đầy đủ:** Có (nếu chi phí mỗi hành động $\ge \epsilon > 0$ và số nút có $f \le C^*$ là hữu hạn).
+    * **Tính tối ưu:** Có (nếu heuristic $h(n)$ là chấp nhận được (admissible - không đánh giá quá cao chi phí thực tế) và nhất quán (consistent/monotonic)).
+    * **Độ phức tạp thời gian:** Số nút được mở rộng phụ thuộc vào chất lượng của heuristic. Có thể là $O(b^d)$ trong trường hợp tốt nhất (heuristic hoàn hảo) hoặc $O(b^{C^*/\epsilon})$ trong trường hợp xấu hơn.
+    * **Độ phức tạp không gian:** Giữ tất cả các nút đã tạo trong bộ nhớ, thường là $O(b^d)$ hoặc tương đương với độ phức tạp thời gian.
+
+* **IDA\* (Iterative Deepening A\*):**
+    * **Tính đầy đủ:** Có (tương tự A\*).
+    * **Tính tối ưu:** Có (tương tự A\*).
+    * **Độ phức tạp thời gian:** Phụ thuộc vào số lượng giá trị f-cost riêng biệt và chất lượng heuristic. Có thể tương đương A\* nếu số lượng giá trị f-cost không quá nhiều.
+    * **Độ phức tạp không gian:** $O(bd)$ (tương tự IDDFS).
 
 ![So sánh hiệu suất Nhóm 2](https://github.com/user-attachments/assets/305dbce2-6945-4e74-86a5-e4dbe9c659af)
+*Biểu đồ so sánh hiệu suất thực tế của Nhóm 2 trên 8-puzzle*
 
 *Ghi chú về hiệu suất thực tế trên 8-puzzle (sử dụng Manhattan distance, tham khảo tệp log kết quả `8_puzzle_test_log.txt`):*
 * A\* và IDA\* tỏ ra rất hiệu quả, thường xuyên tìm ra đường đi tối ưu rất nhanh và duyệt ít trạng thái hơn nhiều so với Nhóm 1.
