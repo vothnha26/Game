@@ -2,7 +2,7 @@
 
 ## 1. Mục tiêu
 
-Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các nhóm thuật toán tìm kiếm cơ bản và nâng cao được sử dụng trong lĩnh vực Trí tuệ Nhân Tạo. Nội dung bao gồm định nghĩa, các thành phần cốt lõi, so sánh hiệu suất lý thuyết và thực tiễn thông qua trò chơi 8-puzzle, cũng như minh họa trực quan (nếu có) cho từng thuật toán. Các triển khai cụ thể và kịch bản thử nghiệm được cung cấp, với kết quả được ghi lại một phần trong tệp log.
+Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các nhóm thuật toán tìm kiếm cơ bản và nâng cao được sử dụng trong lĩnh vực Trí tuệ Nhân Tạo. Nội dung bao gồm định nghĩa, các thành phần cốt lõi, so sánh hiệu suất lý thuyết và thực tiễn thông qua trò chơi 8-puzzle, cũng như minh họa trực quan cho từng thuật toán.
 
 ![UI_group1236](https://github.com/user-attachments/assets/496c135f-23ac-4f95-82c4-39b90e67be4e)
 *Giao diện chính cho Nhóm 1, 2, 3 và 6*
@@ -320,8 +320,8 @@ Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các
 * **Thuật toán ví dụ (được triển khai cho 8-puzzle trong `main.py`):** Q-Learning.
 
 #### 2.6.1. Thành phần chính của bài toán tìm kiếm và solution:
-* **Thành phần (chung cho RL):** Agent, Môi trường, Trạng thái (State), Hành động (Action), Phần thưởng (Reward), Chính sách (Policy $\pi$).
-* **Solution (chung cho RL):** Tìm ra một **chính sách tối ưu ($\pi\*$)** – một quy tắc chỉ dẫn agent nên chọn hành động nào ở mỗi trạng thái để tối đa hóa tổng phần thưởng kỳ vọng trong tương lai.
+* **Thành phần (chung cho RL):** Agent, Môi trường, Trạng thái (State), Hành động (Action), Phần thưởng (Reward), Chính sách (Policy).
+* **Solution (chung cho RL):** Tìm ra một **chính sách tối ưu** – một quy tắc chỉ dẫn agent nên chọn hành động nào ở mỗi trạng thái để tối đa hóa tổng phần thưởng kỳ vọng trong tương lai.
 
 * **Áp dụng cho 8-puzzle với Q-Learning (trong `main.py`):**
     * **Agent:** Thực thể giải puzzle.
@@ -329,9 +329,9 @@ Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các
     * **Trạng thái (State):** Một cấu hình bàn cờ 3x3, thường được biểu diễn dưới dạng tuple các tuple để có thể dùng làm key trong Q-table.
     * **Hành động (Action):** Di chuyển ô trống lên, xuống, trái, hoặc phải (được mã hóa thành các chỉ số 0, 1, 2, 3).
     * **Phần thưởng (Reward):**
-        * `QL_REWARD_GOAL` (ví dụ: +100) khi đạt trạng thái đích.
-        * `QL_REWARD_MOVE` (ví dụ: -1) cho mỗi bước đi không dẫn đến đích.
-        * `QL_REWARD_PREVIOUS` (ví dụ: -10, không được sử dụng trong logic Q-Learning hiện tại nhưng có trong hằng số) có thể dùng để phạt việc quay lại trạng thái đã thăm.
+        * `QL_REWARD_GOAL`: +100 khi đạt trạng thái đích.
+        * `QL_REWARD_MOVE`: -1 cho mỗi bước đi không dẫn đến đích.
+        * `QL_REWARD_PREVIOUS`: -10, không được sử dụng trong logic Q-Learning hiện tại nhưng có trong hằng số, có thể dùng để phạt việc quay lại trạng thái đã thăm.
     * **Solution:** Thuật toán Q-Learning học một **Q-table**, trong đó `Q(s, a)` lưu trữ giá trị kỳ vọng của việc thực hiện hành động `a` từ trạng thái `s`. Chính sách tối ưu được suy ra từ Q-table bằng cách chọn hành động có Q-value cao nhất ở mỗi trạng thái. "Solution" được hiển thị là đường đi (danh sách các trạng thái) được tạo ra bằng cách đi theo chính sách này từ trạng thái ban đầu đến đích.
 
 #### 2.6.2. Hình ảnh GIF của thuật toán (ví dụ Q-Learning):
@@ -356,7 +356,6 @@ Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các
 
 ## 3. Kết luận
 
-* **Hệ thống hóa kiến thức:** Dự án đã tổng hợp và làm rõ các nhóm thuật toán tìm kiếm AI chính, từ cơ bản đến nâng cao.
-* **Minh họa thực tiễn:** Triển khai và so sánh hiệu suất các thuật toán tìm kiếm trạng thái (Nhóm 1, 2, 3, 6) trên bài toán 8-puzzle, đồng thời minh họa các khái niệm tìm kiếm nâng cao (Nhóm 4, 5) qua các ví dụ và kịch bản phù hợp trên 8-puzzle hoặc các bài toán liên quan.
-* **Cung cấp tài liệu tham khảo:** Tạo ra một nguồn tài liệu học tập về các thuật toán tìm kiếm, làm rõ cách mô hình hóa bài toán, biểu diễn trạng thái, định nghĩa giải pháp, cũng như ưu nhược điểm và tính phù hợp của từng nhóm cho các loại bài toán khác nhau.
-* **Định hướng phát triển:** Đặt nền tảng cho việc khám phá sâu hơn các thuật toán, các kỹ thuật heuristic tiên tiến, và ứng dụng trong các lĩnh vực phức tạp hơn.
+* Dự án đã tích hợp và minh họa trực quan một phổ rộng các thuật toán Trí tuệ Nhân tạo. Từ các phương pháp tìm kiếm cơ bản (không thông tin, có thông tin), tìm kiếm cục bộ, đến các kỹ thuật nâng cao hơn cho môi trường phức tạp (AND-OR, quan sát một phần, không quan sát), giải quyết vấn đề ràng buộc (CSP), và học tăng cường (Q-Learning), project đã chứng minh khả năng áp dụng đa dạng của AI vào một bài toán kinh điển. Từ đó có thể phân biệt và áp dụng cho các bài toán nâng cao hơn trong lĩnh vực Trí tuệ Nhân tạo.
+* Tạo ra một nguồn tài liệu học tập về các thuật toán tìm kiếm, làm rõ cách mô hình hóa bài toán, biểu diễn trạng thái, định nghĩa giải pháp, cũng như ưu nhược điểm và tính phù hợp của từng nhóm cho các loại bài toán khác nhau.
+* Đặt nền tảng cho việc khám phá sâu hơn các thuật toán, các kỹ thuật heuristic tiên tiến, và ứng dụng trong các lĩnh vực phức tạp hơn.
