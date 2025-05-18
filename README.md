@@ -241,8 +241,7 @@ Test case: [[1, 2, 3], [4, 0, 5], [6, 7, 8]]
 * **Solution:** Tìm ra một **chính sách tối ưu ($\pi\*$)**.
 
 #### 2.6.2. Hình ảnh GIF của thuật toán (ví dụ Q-Learning):
-![qlearning](https://github.com/user-attachments/assets/94312929-67a4-4be8-a867-9242bc45468c)
-    *(Hiện tại chưa có GIF và triển khai cho Q-Learning giải 8-puzzle.)*
+![qlearning](https://github.com/user-attachments/assets/284098bd-a219-45c5-a7bc-f6b5a93f18a7)
 
 #### 2.6.3. Hình ảnh so sánh hiệu suất của các thuật toán (trong RL nói chung):
 * Đánh giá qua: Tốc độ hội tụ,  chính sách, Sample Efficiency.
