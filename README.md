@@ -89,7 +89,7 @@ Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các
                                         **IDA\* (Iterative Deepening A\*)**
 
 #### 2.2.3. Hình ảnh so sánh hiệu suất của các thuật toán:
-(Hiệu suất lý thuyết chung, phụ thuộc vào chất lượng heuristic)
+(Hiệu suất lý thuyết chung, phụ thuộc vào heuristic)
 | Thuật Toán    | Tính Đầy Đủ | Tính Tối Ưu                     | Độ Phức Tạp Thời Gian | Độ Phức Tạp Không Gian |
 | :------------ | :---------- | :------------------------------- | :-------------------- | :--------------------- |
 | Greedy        | Không       | Không                            | Phụ thuộc $h(n)$      | Phụ thuộc $h(n)$       |
@@ -111,7 +111,7 @@ Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các
 
 ### 2.3. Nhóm 3: Tìm Kiếm Cục Bộ (Local Search)
 
-* **Tóm tắt nhóm:** Bắt đầu từ một giải pháp tiềm năng và lặp đi lặp lại việc di chuyển đến các giải pháp "lân cận" để cải thiện chất lượng.
+* **Tóm tắt nhóm:** Bắt đầu từ một giải pháp tiềm năng và lặp đi lặp lại việc di chuyển đến các giải pháp "lân cận" để cải thiện .
 * **Các thuật toán chính (được triển khai cho 8-puzzle):** Hill Climbing (Simple, Steepest-Ascent, Stochastic), Simulated Annealing, Genetic Algorithms, Beam Search.
 
 #### 2.3.1. Thành phần chính của bài toán tìm kiếm và solution:
@@ -245,7 +245,7 @@ Test case: [[1, 2, 3], [4, 0, 5], [6, 7, 8]]
     *(Hiện tại chưa có GIF và triển khai cho Q-Learning giải 8-puzzle.)*
 
 #### 2.6.3. Hình ảnh so sánh hiệu suất của các thuật toán (trong RL nói chung):
-* Đánh giá qua: Tốc độ hội tụ, Chất lượng chính sách, Sample Efficiency.
+* Đánh giá qua: Tốc độ hội tụ,  chính sách, Sample Efficiency.
 * **Q-Learning:** Model-free, off-policy. Tham số ảnh hưởng lớn đến hiệu suất.
 *Ghi chú về hiệu suất thực tế của Q-Learning trên 8-puzzle (lý thuyết):*
 * Hiệu suất có thể thay đổi, phụ thuộc vào huấn luyện và tham số.
