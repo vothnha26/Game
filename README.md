@@ -1,4 +1,8 @@
-![dfs](https://github.com/user-attachments/assets/4954d202-3efc-4805-a198-a98950ceb5c7)# Tổng Hợp Các Thuật Toán Tìm Kiếm Trong Trí Tuệ Nhân Tạo
+![UI_group1236](https://github.com/user-attachments/assets/43905dd0-8a66-457c-9850-105ad31cf906)
+![UI_group4](https://github.com/user-attachments/assets/4a4f1106-37db-4250-a7d7-51a33d3dbd08)
+![UI_group5](https://github.com/user-attachments/assets/5823851b-a9f2-4299-b820-74100c9f0f1d)
+
+# Tổng Hợp Các Thuật Toán Tìm Kiếm Trong Trí Tuệ Nhân Tạo
 
 ## 1. Mục tiêu
 
