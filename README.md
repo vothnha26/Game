@@ -217,7 +217,7 @@ Dự án này nhằm mục đích tổng hợp, tóm lược và minh họa các
 
 #### 2.5.3. Hình ảnh so sánh hiệu suất của các thuật toán:
 * **Backtracking Search:** Cơ bản, có thể chậm.
-* **Forward Checking & AC-3:** Cải thiện Backtracking.
+* **Forward Checking & AC-3:** Cải thiện Backtracking. Cụ thể AC-3 ở project dùng để khởi tạo ô 8 chữ
 * **Min-Conflicts:** Thuật toán tìm kiếm cục bộ hiệu quả cho một số CSPs, có thể kẹt.
 * Hiệu suất phụ thuộc cấu trúc bài toán và ràng buộc.
 
